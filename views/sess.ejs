@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>DnD Site Project</title>
+      <link href="style.css" rel="stylesheet">
+   </head>
+   <header>
+      <p>
+         <img id="sw5eLogo" src="https://dslv9ilpbe7p1.cloudfront.net/H3Jk6iZb9rI654En3s32rA_store_logo_image.png" alt="Star Wars 5th Edition Logo">
+      </p>
+      <table id="title">
+         <caption>Star Wars 5th Edition Tabletop RPG Scheduler Tool</caption>
+          <tr>
+             <th>
+               <form method ="GET" action="/home">
+                  <button type = "submit">Home</button>
+               </form>
+             </th>
+             <th>
+               <form method ="GET" action="/sess">
+               <button>Sessions</button>
+               </form>
+             </th>
+             <th>
+               <form method ="GET" action="/schedule">
+               <button>Schedule</button>
+               </form>
+             </th>
+          </tr>
+       </table>
+   </header>
+   <body>
+      <h1></h1>
+      <h2></h2>
+         <div>
+            <h1>Sessions:</h1>
+            Welcome to our DnD Star Wars 5th Edition session logger tool.
+            Below, you can log the events of the latest session!
+            </div>
+            <br>
+
+      <div>
+         <h1>Log session:</h1>
+
+         <form method ="POST" action="/log" id="logForm">
+         <p>
+            Date: <br><input type="date" name="dateInput" class = "form" placeholder="mm/dd/yyyy">
+         </p>
+         <p>
+            Attendance: <br><input type="text" name="attenInput" class = "form" placeholder="Who attended this session?">
+         </p>
+         <p>
+            Events: <br>
+            <textarea name="eventsInput" form="logForm" id="eventsInput" rows = "5" cols = "30" placeholder="What happened in this session?"></textarea>
+         </p>
+              <button>Log</button>
+        </form>
+     
+
+      <p>
+      </p>
+      </div>
+<h1></h1>
+<h2></h2>
+   <div>
+      <h1>Previous Sessions:</h1>
+      Displayed below are all the previous sessions.
+      If you'd like to delete, edit, or just find one of them in particular,
+      you may do so here!
+      <br><br>
+
+
+      <form method="POST" action="/search">
+         <input type="text" name="sessID" placeholder="Enter session ID to search">
+         <br><button>Search</button>
+         </form>
+      </div>
+
+      <% data.forEach(function(sessions){ %>
+         <br>
+      <div>
+      <table border=1 id="display">
+         <tr style='text-align:left; background-color:rgb(171, 154, 188)'>
+         <tr><th>Session:&nbsp;</th><td><%= sessions.sessID %></td></tr>
+         <tr><th>Date:&nbsp;</th><td><%= sessions.sessDate %></td></tr>
+         <tr><th>Attendance:&nbsp;</th><td><%= sessions.sessAttendance %></td></tr>
+         <tr><th>Events:&nbsp;</th><td><%= sessions.sessEvents %></td></tr>
+      </table>
+   </div>
+         <% }) %>
+         
+
+   </body>
+
+
+    
+</html>

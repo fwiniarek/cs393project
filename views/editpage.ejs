@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>DnD Site Project</title>
+      <link href="style.css" rel="stylesheet">
+   </head>
+   <header>
+      <p>
+         <img id="sw5eLogo" src="https://dslv9ilpbe7p1.cloudfront.net/H3Jk6iZb9rI654En3s32rA_store_logo_image.png" alt="Star Wars 5th Edition Logo">
+      </p>
+      <table id="title">
+         <caption>Star Wars 5th Edition Tabletop RPG Scheduler Tool</caption>
+          <tr>
+             <th>
+               <form method ="GET" action="/home">
+                  <button type = "submit">Home</button>
+               </form>
+             </th>
+             <th>
+               <form method ="GET" action="/sess">
+               <button>Sessions</button>
+               </form>
+             </th>
+             <th>
+               <form method ="GET" action="/schedule">
+               <button>Schedule</button>
+               </form>
+             </th>
+          </tr>
+       </table>
+   </header>
+   <body>
+
+
+    <div>
+        <h2>Editing session <%= data.sessID %>:</h2>
+        <h1>Original: </h1>
+        <table border=1 id="display">
+           <tr style='text-align:left; background-color:rgb(171, 154, 188)'>
+           <tr><th>Session:&nbsp;</th><td><%= data.sessID %></td></tr>
+           <tr><th>Date:&nbsp;</th><td><%= data.sessDate %></td></tr>
+           <tr><th>Attendance:&nbsp;</th><td><%= data.sessAttendance %></td></tr>
+           <tr><th>Events:&nbsp;</th><td><%= data.sessEvents %></td></tr>
+        </table>
+        <br><br>
+
+        <h1>New:</h1>
+        <form method ="POST" action="/editsubmit" id="editForm">
+            <p>
+               New Date: <br><input type="date" name="dateInput" class = "form" placeholder="mm/dd/yyyy">
+            </p>
+            <p>
+               New Attendance: <br><input type="text" name="attenInput" class = "form" placeholder="Who attended this session?">
+            </p>
+            <p>
+               New Events: <br>
+               <textarea name="eventsInput" form="editForm" id="eventsInput" rows = "5" cols = "30" placeholder="What happened in this session?"></textarea>
+            </p>
+                 <button>Submit</button>
+           </form>
+
+
+
+   </body>
+
+
+    
+</html>
+

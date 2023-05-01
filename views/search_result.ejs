@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>DnD Site Project</title>
+      <link href="style.css" rel="stylesheet">
+   </head>
+   <header>
+      <p>
+         <img id="sw5eLogo" src="https://dslv9ilpbe7p1.cloudfront.net/H3Jk6iZb9rI654En3s32rA_store_logo_image.png" alt="Star Wars 5th Edition Logo">
+      </p>
+      <table id="title">
+         <caption>Star Wars 5th Edition Tabletop RPG Scheduler Tool</caption>
+          <tr>
+             <th>
+               <form method ="GET" action="/home">
+                  <button type = "submit">Home</button>
+               </form>
+             </th>
+             <th>
+               <form method ="GET" action="/sess">
+               <button>Sessions</button>
+               </form>
+             </th>
+             <th>
+               <form method ="GET" action="/schedule">
+               <button>Schedule</button>
+               </form>
+             </th>
+          </tr>
+       </table>
+   </header>
+   <body>
+
+
+    <div>
+        <h1>Session found:</h1>
+        <table border=1 id="display">
+           <tr style='text-align:left; background-color:rgb(171, 154, 188)'>
+           <tr><th>Session:&nbsp;</th><td><%= data.sessID %></td></tr>
+           <tr><th>Date:&nbsp;</th><td><%= data.sessDate %></td></tr>
+           <tr><th>Attendance:&nbsp;</th><td><%= data.sessAttendance %></td></tr>
+           <tr><th>Events:&nbsp;</th><td><%= data.sessEvents %></td></tr>
+        </table>
+        <br><br>
+        Would you like to edit this session, or delete it from the database?<br>
+        <table id="editdelete"><th>
+            <form method="POST" action="/edit">
+                <br><button id = "edbutton" name = "sessID" type="submit" value=data.sessID>Edit</button>
+            </form>
+        </th>
+        <th>
+            <form method="POST" action="/delete">
+                <br><button id="edbutton" name = "sessID" type="submit" value="data.sessID">Delete</button>
+            </form>
+        </th>
+    </table>
+
+
+   </body>
+
+
+    
+</html>
+
+
+
+
